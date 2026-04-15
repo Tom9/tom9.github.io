@@ -234,21 +234,6 @@
     }
 
     /* ── Game section ── */
-    .game-placeholder {
-      background: var(--surface);
-      border: 2px dashed var(--border);
-      border-radius: var(--radius);
-      padding: 3rem 2rem;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    .game-placeholder .big-icon { font-size: 3rem; margin-bottom: 1rem; }
-    .game-placeholder h3 { color: var(--text); font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .game-placeholder p { font-size: 0.875rem; max-width: 420px; margin: 0 auto; }
-
-    /* This div is where the Godot HTML5 export will be embedded.
-       Replace the .game-placeholder with your exported Godot files. */
     #game-container { width: 100%; }
 
     /* ── Notebooks table ── */
@@ -365,7 +350,7 @@
 
       <div class="card">
         <div class="card-icon">🎮</div>
-        <div class="card-badge badge-soon">Coming soon</div>
+        <div class="card-badge badge-soon">Live</div>
         <h3>Godot Game</h3>
         <p>
           A small game built with Godot 4 and GDScript — playable right here
@@ -405,42 +390,13 @@
       entirely in your browser — no install needed.
     </p>
 
-    <!--
-      ╔═══════════════════════════════════════════════════════════╗
-      ║  HOW TO EMBED YOUR GODOT GAME                            ║
-      ║                                                           ║
-      ║  1. In Godot: Project → Export → HTML5                   ║
-      ║  2. Export to a folder, e.g.  /game/                     ║
-      ║  3. The export produces files like:                       ║
-      ║       game/index.html                                     ║
-      ║       game/index.pck                                      ║
-      ║       game/index.wasm  (or .js / .wasm)                  ║
-      ║  4. Replace the .game-placeholder block below with:       ║
-      ║                                                           ║
-      ║     <iframe                                               ║
-      ║       src="game/index.html"                               ║
-      ║       width="960" height="540"                            ║
-      ║       allowfullscreen                                     ║
-      ║       style="border:none;width:100%;max-width:960px;      ║
-      ║              aspect-ratio:16/9;display:block;             ║
-      ║              margin:0 auto;border-radius:8px;">           ║
-      ║     </iframe>                                             ║
-      ║                                                           ║
-      ║  Note: GitHub Pages requires a COOP/COEP header for      ║
-      ║  SharedArrayBuffer (needed by Godot 4 threads).           ║
-      ║  Add a _headers file or use the iframe approach with      ║
-      ║  a separate hosting service (itch.io, etc.) if needed.   ║
-      ╚═══════════════════════════════════════════════════════════╝
-    -->
     <div id="game-container">
-      <div class="game-placeholder">
-        <div class="big-icon">🎮</div>
-        <h3>Game coming soon</h3>
-        <p>
-          Once the Godot HTML5 export is added to the <code>/game/</code> folder,
-          the playable build will appear here.
-        </p>
-      </div>
+      <iframe
+        src="game_1.6/index.html"
+        width="960" height="540"
+        allowfullscreen
+        style="border:none;width:100%;max-width:960px;aspect-ratio:16/9;display:block;margin:0 auto;border-radius:8px;">
+      </iframe>
     </div>
   </section>
 
