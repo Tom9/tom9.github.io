@@ -372,6 +372,53 @@
       border: none;
     }
 
+    /* ── Game click-to-play ── */
+    .game-placeholder {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+      aspect-ratio: 16/9;
+      margin: 0 auto;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .game-placeholder:hover .play-btn { transform: scale(1.1); }
+    .play-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      transition: transform 0.2s;
+      pointer-events: none;
+    }
+    .play-btn svg {
+      width: 72px;
+      height: 72px;
+      fill: var(--accent);
+      opacity: 0.9;
+    }
+    .play-btn span {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+    #game-container iframe {
+      border: none;
+      width: 100%;
+      max-width: 960px;
+      aspect-ratio: 16/9;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 600px) {
       .nav-links { gap: 1rem; }
@@ -526,14 +573,12 @@
     </ul>
 
     <div id="game-container">
-      <iframe
-        src="game1.9/index.html"
-        width="960" height="540"
-        allowfullscreen
-        tabindex="-1"
-        loading="lazy"
-        style="border:none;width:100%;max-width:960px;aspect-ratio:16/9;display:block;margin:0 auto;border-radius:8px;">
-      </iframe>
+      <div class="game-placeholder" id="game-placeholder" onclick="launchGame()">
+        <div class="play-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+          <span>Click to Play</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -596,9 +641,18 @@
   </footer>
 
   <script>
-    // Prevent any iframe from stealing focus and scrolling the page on load
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     window.addEventListener('load', () => window.scrollTo(0, 0));
+
+    function launchGame() {
+      const container = document.getElementById('game-container');
+      const placeholder = document.getElementById('game-placeholder');
+      const iframe = document.createElement('iframe');
+      iframe.src = 'game1.9/index.html';
+      iframe.allowFullscreen = true;
+      iframe.setAttribute('allow', 'autoplay');
+      container.replaceChild(iframe, placeholder);
+    }
   </script>
 </body>
 </html>
