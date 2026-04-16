@@ -335,7 +335,7 @@
     .hero-img {
       width: 110px;
       height: 110px;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 10px;
       flex-shrink: 0;
       border: 1px solid var(--border);
@@ -404,7 +404,7 @@
       <img class="hero-img" src="sunset.jpg" alt="Sunset" />
     </div>
     <p style="text-align:center;max-width:100%;">
-      Navy submarine veteran and aspiring developer. When the Navy issues me free time I work on
+      (soon to be) Navy submarine veteran and aspiring developer. When the Navy issues me free time I work on
       game dev, data exploration, and whatever else catches my interest. If the weather is really nice
       then you can find me out on the golf course! 
     </p>
@@ -531,6 +531,7 @@
         width="960" height="540"
         allowfullscreen
         tabindex="-1"
+        loading="lazy"
         style="border:none;width:100%;max-width:960px;aspect-ratio:16/9;display:block;margin:0 auto;border-radius:8px;">
       </iframe>
     </div>
@@ -594,5 +595,10 @@
     </p>
   </footer>
 
+  <script>
+    // Prevent any iframe from stealing focus and scrolling the page on load
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.addEventListener('load', () => window.scrollTo(0, 0));
+  </script>
 </body>
 </html>
