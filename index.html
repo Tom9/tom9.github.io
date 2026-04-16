@@ -320,6 +320,58 @@
       top: 0.28em;
     }
 
+    /* ── Hero title row ── */
+    .hero-title-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .hero-title-row h1 {
+      flex: 1;
+      text-align: center;
+      margin-bottom: 0;
+    }
+    .hero-img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    /* ── Video strip ── */
+    .video-strip {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem 3.5rem;
+    }
+    .video-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.65rem;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 600px) {
       .nav-links { gap: 1rem; }
@@ -346,7 +398,11 @@
   <!-- ── Hero ── -->
   <header class="hero">
     <div class="hero-tag">Portfolio</div>
-    <h1>Hey, I'm <span>Tom</span> 👋</h1>
+    <div class="hero-title-row">
+      <img class="hero-img" src="dolphins.png" alt="Dolphins" />
+      <h1>Hey, I'm <span>Tom</span></h1>
+      <img class="hero-img" src="sunset.jpg" alt="Sunset" />
+    </div>
     <p>
       Navy submarine veteran and aspiring developer. When the Navy issues me free time I work on
       game dev, data exploration, and whatever else catches my interest. If the weather is really nice
@@ -359,6 +415,19 @@
       </a>
     </div>
   </header>
+
+  <!-- ── Video strip ── -->
+  <div class="video-strip">
+    <div class="video-label">Now playing on a crews mess near you</div>
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/nmGuy0jievs?autoplay=1&mute=1&loop=1&playlist=nmGuy0jievs&rel=0"
+        title="YouTube video"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
 
   <!-- ── About ── -->
   <section id="about">
