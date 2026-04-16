@@ -283,6 +283,43 @@
     footer a { color: var(--muted); }
     footer a:hover { color: var(--accent); }
 
+    /* ── Multi-paragraph text blocks ── */
+    .text-block {
+      max-width: 620px;
+      margin-bottom: 2rem;
+    }
+    .text-block p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    .text-block p:last-child { margin-bottom: 0; }
+
+    /* ── Bullet description lists ── */
+    .desc-list {
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 2rem;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .desc-list li {
+      padding-left: 1.4rem;
+      position: relative;
+      line-height: 1.7;
+    }
+    .desc-list li::before {
+      content: "○";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.75em;
+      top: 0.28em;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 600px) {
       .nav-links { gap: 1rem; }
@@ -311,8 +348,9 @@
     <div class="hero-tag">Portfolio</div>
     <h1>Hey, I'm <span>Tom</span> 👋</h1>
     <p>
-      Navy veteran turned developer. When the sea gives me free time I work on
-      game dev, data exploration, and whatever else catches my interest.
+      Navy submarine veteran and aspiring developer. When the Navy issues me free time I work on
+      game dev, data exploration, and whatever else catches my interest. If the weather is really nice
+      then you can find me out on the golf course! 
     </p>
     <div class="btn-row">
       <a class="btn btn-primary" href="#projects">See my work</a>
@@ -326,11 +364,27 @@
   <section id="about">
     <div class="section-label">Background</div>
     <h2>About me</h2>
-    <p>
-      I picked up programming between deployments and never stopped. My current
-      interests include game development with Godot, data analysis in Python,
-      and building things that are fun to use.
-    </p>
+    <div class="text-block">
+      <p>I started out life as a tinkerer — always pulling things apart and (sometimes)
+      putting them back together. Being slightly misinformed but not lacking academic
+      aptitude, I set out to college thinking I wanted to be a mechanical engineer. Turns
+      out you don't get to take apart small engines and do woodworking as a Mech E.</p>
+      <p>After some wandering around I changed schools and switched to Electrical Engineering,
+      but once again found that while you do get to build things sooner as an EE... you're still
+      looking at several semesters of course work before doing anything fun (in my mind).</p>
+      <p>Luckily, I was required to take SY204 at USNA with Dr. Dan Roche and I discovered something
+      that scratched that childhood desire to tear down, understand, and build that I'd been missing.</p>
+      <p>It was a revelation of sorts — I found myself for the first time daydreaming about classwork
+      while out playing sports (I'd never done that before — always the other way around). I loved the
+      problems, I loved getting that code to compile to see that 100% on the unit test. Every new data
+      structure or algorithm was another tool I could use. I could imagine something and have it built
+      that day, sometimes even that hour — I loved the speed.</p>
+      <p>Unfortunately, the Navy didn't allow too much free time to continue developing this passion, but
+      I fit it in where I could. This page is a catalog of those small projects squeezed into late nights
+      and the scarce few weekends I had between duty, inspections, and deployments.</p>
+      <p>My current interests include game development with Godot, data analysis in Python,
+      and building all the random ideas that pop into my head.</p>
+    </div>
     <div class="chips">
       <span class="chip">Godot / GDScript</span>
       <span class="chip">Python</span>
@@ -338,6 +392,7 @@
       <span class="chip">Jupyter</span>
       <span class="chip">GitHub Pages</span>
       <span class="chip">US Navy Veteran</span>
+      <span class="chip">Submariner</span>
     </div>
   </section>
 
@@ -386,27 +441,22 @@
   <section id="game">
     <div class="section-label">Interactive</div>
     <h2>Play the Game</h2>
-    <p>
-      o The game below is a project I started working on between underways 
-      on the submarine to try and reignite that love I had for programming, 
-      try out something new, and maybe even publish it one day.
-
-      o Simple WASD controls - the coral colored circles are the aimpoints to hit
-      the moving mob.
-
-      o Left click fires projectiles (your velocity vecotr does add to the projectiles'
-      velocity so no need to account for your speed when trying to lead a target)
-
-      o Right click fires a "lasso" that when it strikes an asteroid will tehter you 
-      to the asteroid, enabling higher-G maneuvers than what you are capable of on
-      thrusters alone (bonus points if this sounds familiar to you ;)
-
-      Every mob you kill spawns two more - see how many you can get?
-    </p>
+    <ul class="desc-list">
+      <li>The game below is a project I started working on between underways on the submarine
+        to try and reignite that love I had for programming, try out something new, and maybe
+        even publish it one day.</li>
+      <li>Simple WASD controls — the coral colored circles are the aimpoints to hit the moving mob.</li>
+      <li>Left click fires projectiles (your velocity vector does add to the projectiles' velocity,
+        so no need to account for your speed when trying to lead a target).</li>
+      <li>Right click fires a "lasso" — when it strikes an asteroid it will tether you to it,
+        enabling higher-G maneuvers than what you are capable of on thrusters alone
+        (bonus points if this sounds familiar to you 😉).</li>
+      <li>Every mob you kill spawns two more — see how many you can get?</li>
+    </ul>
 
     <div id="game-container">
       <iframe
-        src="game1.8/index.html"
+        src="game1.9/index.html"
         width="960" height="540"
         allowfullscreen
         style="border:none;width:100%;max-width:960px;aspect-ratio:16/9;display:block;margin:0 auto;border-radius:8px;">
@@ -418,15 +468,13 @@
   <section id="notebooks">
     <div class="section-label">Data</div>
     <h2>Data Notebooks</h2>
-    <p>
-      Exploratory analysis and visualisations. Each notebook opens in
-      nbviewer or as a rendered HTML page — no Python install required.
-
-      These were random ideas that would pop into my head, usually centered
-      around sports statistics, and yes, wondering if I could beat the bookies.
-      Turns out they're pretty smart too. If I do figure something out - I definetly 
-      won't post it here!
-    </p>
+    <ul class="desc-list">
+      <li>Exploratory analysis and visualisations. Each notebook opens in nbviewer or as a
+        rendered HTML page — no Python install required.</li>
+      <li>These were random ideas that would pop into my head, usually centered around sports
+        statistics, and yes, wondering if I could beat the bookies. Turns out they're pretty
+        smart too. If I do figure something out — I definitely won't post it here!</li>
+    </ul>
 
     <!--
       ╔═══════════════════════════════════════════════════════════╗
